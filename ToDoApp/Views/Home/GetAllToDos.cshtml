@@ -1,0 +1,37 @@
+﻿@model List<ToDoApp.DTOs.ToDoDTO>
+
+    @if(Model != null)
+    {    
+        <div class="table-responsive" style="color: #828282;">
+
+            <table id="todos" class="table table-hover bg-light cell-border">
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <partial name="ToDo_Table_Card"/>
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="text-center head-size pt-5">
+         No Todo Yet
+        </div>
+    }
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    if ("@ViewBag.message" != "") {
+
+        swal("@ViewBag.message", "", "@ViewBag.type")
+    }
+</script>

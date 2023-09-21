@@ -1,0 +1,75 @@
+﻿@model ToDoApp.DTOs.ToDoDTO
+﻿
+@{
+    ViewData["Title"] = "Edit ToDo Item";
+}
+
+<head>
+    <script src="~/js/jquery-3.4.1.min.js"></script>
+</head>
+
+<a asp-action="GetAllToDos" asp-controller="Home" class="btn view font-weight-bold" style="background: #FFDCDC; border-radius: 30px;color: #DA443D;">See List of Todos</a>
+
+<h2>Edit Todo</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Home" asp-action="UpdateToDoItem">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input type="hidden" asp-for="Id" name="Id" value="@Model.Id">
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Priority" class="control-label"></label>
+
+                <select asp-for="Priority">
+
+                    <option value="">----Select Todo Priority----</</option>
+                    <option value="@ToDoApp.Enums.Priority.Low">Low</</option>
+                    <option value="@ToDoApp.Enums.Priority.Medium">Medium</</option>
+                    <option value="@ToDoApp.Enums.Priority.High">High</</option>
+                </select>
+                <span asp-validation-for="Priority" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+
+                <select asp-for="Status">
+
+                    <option value="">----Select Todo Status----</</option>
+                    <option value="@ToDoApp.Enums.Status.NotStarted">NotStarted</</option>
+                    <option value="@ToDoApp.Enums.Status.InProgress">InProgress</</option>
+                    <option value="@ToDoApp.Enums.Status.Completed">Completed</</option>
+                </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" id="btnSubmit" value="Edit" class="btn btn-default bg-info" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+</div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    if ("@ViewBag.message" != "") {
+
+        swal("@ViewBag.message", "", "@ViewBag.type")
+    }
+</script>
