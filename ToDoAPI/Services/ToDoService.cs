@@ -83,6 +83,9 @@ namespace ToDoAPI.Services
 
                     return res;
                 }
+
+                res.Code = "01";
+                res.Description = "failed";
                 return res;
             }
             catch (System.Exception)
@@ -106,6 +109,9 @@ namespace ToDoAPI.Services
 
                     return res;
                 }
+
+                res.Code = "01";
+                res.Description = "failed";
                 return res;
             }
             catch (System.Exception)
@@ -129,6 +135,8 @@ namespace ToDoAPI.Services
 
                     return res;
                 }
+                res.Code = "01";
+                res.Description = "failed";
                 return res;
             }
             catch (System.Exception)
