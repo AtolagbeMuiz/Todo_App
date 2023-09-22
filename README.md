@@ -19,4 +19,4 @@ This server-side API project was implemented using the Repository Software Desig
 
 ARCHITECTURE LAYER DESIGN
 
-![](StudentAdministrationERP/wwwroot/Images/ArchitectureLayer.png)
+![](ToDoApp/wwwroot/Images/ArchitectureLayer.png)
